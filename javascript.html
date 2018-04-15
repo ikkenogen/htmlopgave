@@ -16,6 +16,36 @@
         <h1 id="velkommen"></h1>
         <p id="tekst"></p>
         <script src="scripts/nogettekst.js"></script>
+
+        <p>Gæt et tal mellem 1 og 10</p>
+        <p>
+            <input type="number" min="1" max="10" id="gaet" />
+            <button id="ok">Gæt</button>
+        </p>
+        <div id="feedback">&nbsp;</div>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                var korrekt = Math.floor(Math.random() * 10) + 1;
+
+                $("#ok").click(function() {
+                    var gaet = $("#gaet").val();
+                    var besked = "";
+                    if (gaet < korrekt) {
+                        besked = "Dit gæt var for lavt";
+                    } else if (gaet > korrekt) {
+                        besked = "Dit gæt var for højt";
+                    } else {
+                        besked = "Dit gæt var korrekt!";
+                    }
+
+                    $("#feedback").text(besked);
+                });
+            });
+        </script>
+        
         <!-- Knapper -->
         <br />
         <a href="index.php"><img src="media/hjem.png" alt="Hjem" style="width:100px;height:25%;border:0;"></a> 
